@@ -57,10 +57,11 @@ cd $ROOT_DIR
 # Download docker images from docker-compose.yml.
 # As this might be run during setup we use `newgrp` command to ensure 
 # docker works.
-newgrp docker << END
-# You can do more lines than just this./
-docker compose pull
-END
+# newgrp docker << END
+# # You can do more lines than just this./
+# docker compose pull
+# END
+./scripts/build.sh --latest --no-cache
 
 echo "*** Update CLI dependencies"
 source ~/.profile #ensure poetry is in path

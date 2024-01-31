@@ -23,6 +23,6 @@ printf "\n*** Update Matter Sample Apps ***\n"
 cd $ROOT_DIR
 SDK_DOCKER_IMAGE=$(cat $ROOT_DIR/backend/app/core/config.py | grep SDK_DOCKER_IMAGE | cut -d'"' -f 2 | cut -d"'" -f 2)
 SDK_DOCKER_TAG=$(cat $ROOT_DIR/backend/app/core/config.py | grep SDK_DOCKER_TAG | cut -d'"' -f 2 | cut -d"'" -f 2)
-sudo docker pull $SDK_DOCKER_IMAGE:$SDK_DOCKER_TAG
+# sudo docker pull $SDK_DOCKER_IMAGE:$SDK_DOCKER_TAG
 sudo docker run -t -v ~/apps:/apps $SDK_DOCKER_IMAGE:$SDK_DOCKER_TAG bash -c "rm -v /apps/*; cp -v * /apps/;"
 sudo chown -R `whoami` ~/apps

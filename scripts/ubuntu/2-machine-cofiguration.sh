@@ -89,24 +89,24 @@ printf "\n*** Enable ip6table_filter in kernel modules ***\n"
 printf "\n Updating: /etc/modules\n"
 grep -qxF "ip6table_filter" /etc/modules || echo "ip6table_filter" | sudo tee -a /etc/modules
 
-printf "\n\n**********"
-printf "\n*** Create System Service for Matter Test Harness ***\n"
-printf "\n Writing: /etc/systemd/system/matter-th.service"
-cat << EOF | sudo tee /etc/systemd/system/matter-th.service
-[Unit]
-Description=Matter Test Harness
-After=network.target
-[Service]
-Type=oneshot
-User=$USER
-Group=ubuntu
-ExecStart=$ROOT_DIR/scripts/start.sh
-[Install]
-WantedBy=default.target
-EOF
+# printf "\n\n**********"
+# printf "\n*** Create System Service for Matter Test Harness ***\n"
+# printf "\n Writing: /etc/systemd/system/matter-th.service"
+# cat << EOF | sudo tee /etc/systemd/system/matter-th.service
+# [Unit]
+# Description=Matter Test Harness
+# After=network.target
+# [Service]
+# Type=oneshot
+# User=$USER
+# Group=ubuntu
+# ExecStart=$ROOT_DIR/scripts/start.sh
+# [Install]
+# WantedBy=default.target
+# EOF
 
-sudo systemctl daemon-reload
-sudo systemctl enable matter-th
+# sudo systemctl daemon-reload
+# sudo systemctl enable matter-th
 
 printf "\n\n**********"
 printf "\n*** Enable systemd-timesyncd ***\n"
